@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+require = require('esm')(module /*, options*/);
+biuCli = require("../src/main").default;
+biuCli(process.argv);
