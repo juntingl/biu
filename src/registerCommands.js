@@ -3,6 +3,7 @@ import chalk from 'chalk';
 import { program } from 'commander';
 import { version } from '../package.json';
 import init from './commands/init';
+import { generateCRUDPage } from './commands/generate';
 
 function registerCommands () {
   console.log("Welcome to Biu!");
@@ -20,6 +21,17 @@ function registerCommands () {
     .action(async (options, { args }) => {
       const [template, appName] = args;
       init(template, appName);
+    });
+
+  // 生成 CRUD 页面
+  program
+    .command("generate")
+    .usage('<page> [folder-name]')
+    .description("generate a new crud page")
+    .option('-p, --page')
+    .action(async (options, { args }) => {
+      const [page, folderName] = args;
+      generateCRUDPage(page, folderName);
     });
 
   // 自定义帮助文档
