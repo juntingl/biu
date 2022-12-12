@@ -42,6 +42,6 @@ function preAction(template, folderName) {
   }
 }
 
-export function generateCRUDPage (template, folderName) {
-  preAction(template, folderName);
+export function generateCRUDPage (folderName) {
+  // preAction(folderName);
 }

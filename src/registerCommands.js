@@ -26,9 +26,9 @@ function registerCommands () {
   // 生成 CRUD 页面
   program
     .command("generate")
-    .usage('<page> [folder-name]')
-    .description("generate a new crud page")
-    .option('-p, --page')
+    .usage('<template> [folder-name]')
+    .description("generate command, helps you quickly create pages or components. ")
+    .option('-p, --page', "generate a new crud page")
     .action(async (options, { args }) => {
       const [page, folderName] = args;
       generateCRUDPage(page, folderName);
@@ -40,6 +40,8 @@ function registerCommands () {
     console.log('Example:');
     console.log(chalk.gray('  # generate a project from a remote template'));
     console.log('  $ biu init template-name my-project');
+    console.log(chalk.gray('  # generate a page from a local template'));
+    console.log('  $ biu generate page folder-name');
     console.log();
   });
 
