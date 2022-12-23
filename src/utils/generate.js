@@ -3,7 +3,7 @@
  * @Author: Junting.liu
  * @Date: 2019-09-25 11:43:29
  * @Last Modified by: Junting
- * @Last Modified time: 2022-10-26 11:26:33
+ * @Last Modified time: 2022-12-12 16:50:12
  */
 import path from "path";
 import Metalsmith from "metalsmith";
@@ -93,7 +93,7 @@ function renderTemplateFiles(files, metalsmith, done) {
       // 文件内容转 String
       const str = files[file].contents.toString();
       // 如果文件中没有模板语法，则不对该文件进行渲染，直接输出文件内容。
-      if (!/{{([^{}]+)}}/g.test(str)) {
+      if (!/{{(?!{)(.+?)(?<!})}}/g.test(str)) {
         return next();
       }
 

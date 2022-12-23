@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import { program } from 'commander';
 import { version } from '../package.json';
 import init from './commands/init';
-import { generateCRUDPage } from './commands/generate';
+import generate from './commands/generate';
 
 function registerCommands () {
   console.log("Welcome to Biu!");
@@ -31,7 +31,7 @@ function registerCommands () {
     .option('-p, --page', "generate a new crud page")
     .action(async (options, { args }) => {
       const [page, folderName] = args;
-      generateCRUDPage(page, folderName);
+      generate(page, folderName);
     });
 
   // 自定义帮助文档
