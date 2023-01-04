@@ -3,7 +3,7 @@ import inquirer from "inquirer";
 import { existsSync as exists } from "fs";
 
 import logger from '../utils/logger';
-import { isLocalPath, getTemplatePath } from "../utils/local-path";
+import { isLocalPath, getTemplatePath, getCliTemplatePath } from "../utils/local-path";
 import generate from "../utils/generate";
 
 /**
@@ -46,7 +46,7 @@ function preAction(template, folderName) {
 function execute(template, folderName, folderDir) {
   // 检查是不是本地模板
   if (!isLocalPath(template)) {
-    const templatePath = getTemplatePath("templates/" + template);
+    const templatePath = getCliTemplatePath("templates/" + template);
 
     if (exists(templatePath)) {
       generate(folderName, templatePath, folderDir, err => {

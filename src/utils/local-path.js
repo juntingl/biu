@@ -3,7 +3,7 @@
  * @Author: Junting.liu
  * @Date: 2019-09-25 11:22:35
  * @Last Modified by: Junting
- * @Last Modified time: 2022-12-12 14:03:23
+ * @Last Modified time: 2023-01-04 11:17:26
  */
 
 import path from "path";
@@ -25,4 +25,8 @@ export function isLocalPath(templatePath) {
  */
 export function getTemplatePath(templatePath) {
   return path.isAbsolute(templatePath) ? templatePath : path.normalize(path.join(process.cwd(), templatePath));
+}
+
+export function getCliTemplatePath(templatePath) {
+  return path.isAbsolute(templatePath) ? templatePath : path.normalize(path.join(__dirname, '../../', templatePath));
 }
